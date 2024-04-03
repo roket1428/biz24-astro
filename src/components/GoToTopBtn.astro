@@ -1,0 +1,48 @@
+<button
+    id="to-top-button"
+    onclick="goToTop()"
+    title="En üste git"
+    class="fixed z-40 hidden w-16 h-16 text-3xl text-white border-0 bottom-8 right-8 bg-cover transition-all duration-300"
+>
+    <div class="flex items-center justify-center w-full h-full">
+        <svg
+            class="w-8 h-8"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+        >
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"></path>
+        </svg>
+    </div>
+</button>
+
+<script is:inline>
+    let toTopButton = document.getElementById("to-top-button");
+    let scrollDownIndicator = document.getElementById("scroll-down-indicator");
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            toTopButton.classList.remove("hidden");
+            scrollDownIndicator.style.opacity = 0;
+        } else {
+            toTopButton.classList.add("hidden");
+            scrollDownIndicator.style.opacity = 1;
+        }
+    }
+
+    function goToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+<style>
+    #to-top-button {
+        background-image: url("../media/images/website/altigen_koyu.svg");
+    }
+    #to-top-button:hover {
+        background-image: url("../media/images/website/altigen_acik.svg");
+    }
+</style>

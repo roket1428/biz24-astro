@@ -3,7 +3,7 @@ import { Image } from "astro:assets"
 import tubitLogo from "../../media/images/website/tubit-logo.svg"
 
 import Biz24Logo from "./Biz24Logo.astro"
-import NavHamburgerCloseBtn from "./NavHamburgerOpenBtn.astro"
+import NavHamburgerCloseBtn from "./NavHamburgerCloseBtn.astro"
 import NavHamburgerMenuItem from "./NavHamburgerMenuItem.astro"
 ---
 
@@ -25,7 +25,7 @@ import NavHamburgerMenuItem from "./NavHamburgerMenuItem.astro"
         </ul>
         <div class="flex justify-center mb-12">
             <a class="shrink-0" href="https://tubit.trakya.edu.tr" target="_blank" rel="noopener noreferrer" title="TÜBİT" >
-                <Image src={tubitLogo} alt="TÜBİT" class="w-[100px] h-[60px]" />
+                <Image src={tubitLogo} alt="TÜBİT" class="w-[100px] h-[60px]" loading={"eager"} />
             </a>
         </div>
     </div>

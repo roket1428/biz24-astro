@@ -27,54 +27,22 @@ import bizLogo from "../media/images/website/biz-logo.svg"
         </h1>
         <div class="flex flex-row items-center px-4" id="eventCountdown">
             <div class="flex flex-col">
-                <p
-                    class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2"
-                    id="eventCountdownDay"
-                >
-                    00
-                </p>
+                <p class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2" id="eventCountdownDay" > 00 </p>
                 <p class="text-xs text-center md:text-2xl">Gün</p>
             </div>
-            <p
-                class="mx-2 text-3xl text-center sm:text-4xl md:text-6xl md:mx-4"
-            >
-                :
-            </p>
+            <p class="mx-2 text-3xl text-center sm:text-4xl md:text-6xl md:mx-4" > : </p>
             <div class="flex flex-col">
-                <p
-                    class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2"
-                    id="eventCountdownHour"
-                >
-                    00
-                </p>
+                <p class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2" id="eventCountdownHour" > 00 </p>
                 <p class="text-xs text-center md:text-2xl">Saat</p>
             </div>
-            <p
-                class="mx-2 text-3xl text-center sm:text-4xl md:text-6xl md:mx-4"
-            >
-                :
-            </p>
+            <p class="mx-2 text-3xl text-center sm:text-4xl md:text-6xl md:mx-4" > : </p>
             <div class="flex flex-col">
-                <p
-                    class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2"
-                    id="eventCountdownMinute"
-                >
-                    00
-                </p>
+                <p class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2" id="eventCountdownMinute" > 00 </p>
                 <p class="text-xs text-center md:text-2xl">Dakika</p>
             </div>
-            <p
-                class="mx-2 text-3xl text-center sm:text-4xl md:text-6xl md:mx-4"
-            >
-                :
-            </p>
+            <p class="mx-2 text-3xl text-center sm:text-4xl md:text-6xl md:mx-4" > : </p>
             <div class="flex flex-col">
-                <p
-                    class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2"
-                    id="eventCountdownSecond"
-                >
-                    00
-                </p>
+                <p class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2" id="eventCountdownSecond" > 00 </p>
                 <p class="text-xs text-center md:text-2xl">Saniye</p>
             </div>
         </div>
@@ -93,3 +61,30 @@ import bizLogo from "../media/images/website/biz-logo.svg"
         </svg>
     </a>
 </section>
+
+<script is:inline>
+    let countDownDate = new Date("May 14, 2024 10:00:00").getTime();
+
+    let x = setInterval(function() {
+
+    let now = new Date().getTime();
+
+    let distance = countDownDate - now;
+
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("eventCountdownDay").innerHTML = days.toString().padStart(2,0);
+    document.getElementById("eventCountdownHour").innerHTML = hours.toString().padStart(2,0);
+    document.getElementById("eventCountdownMinute").innerHTML = minutes.toString().padStart(2,0);
+    document.getElementById("eventCountdownSecond").innerHTML = seconds.toString().padStart(2,0);
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("eventCountdownTitle").innerHTML = "Etkinlik Başladı!";
+        document.getElementById("eventCountdown").classList.add("hidden");
+    }
+    }, 1000);
+</script>

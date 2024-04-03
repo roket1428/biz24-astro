@@ -20,9 +20,11 @@ import NavHamburgerOpenBtn from "./NavHamburgerOpenBtn.astro"
             </ul>
         </div>
         <a class="hidden shrink-0 lg:block" href="https://tubit.trakya.edu.tr" target="_blank" rel="noopener noreferrer" title="TÜBİT" >
-            <Image src={tubitLogo} alt="TÜBİT" class="w-[100px] h-[60px]"/>
+            <Image src={tubitLogo} alt="TÜBİT" class="w-[100px] h-[60px]" loading={"eager"}/>
         </a>
         <NavHamburgerOpenBtn/>
     </div>
     <NavHamburgerMenu />
 </nav>
+
+<script src="../../js/drawer.js"></script>

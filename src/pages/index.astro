@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContentSection from "../components/ContentSection.astro";
-import Header from "../components/header/Header.astro";
+import Header from "../components/Header.astro";
+import GoToTopBtn from "../components/GoToTopBtn.astro";
 import EventCard from "../components/EventCard.astro";
 import Person from "../components/Person.astro";
 import ReactCarousel from "../components/carousel/reactCarousel.jsx";
@@ -89,6 +90,17 @@ import goletLogo from "../media/images/sponsors/golet.webp"
 				</p>
 			</div>
 		</ContentSection>
+		<ContentSection href="etkinlikler" title="Önceki Etkinliklerimiz">
+			<div class="flex flex-wrap items-center justify-evenly">
+				<EventCard desc="Dijital Genç Yapay Zeka Ekosistemi Tanışma Toplantısı 2024" src={dgyz24} />
+				<EventCard desc="Yazılımcılıktan Girişimciliğe 2024" src={yg24} />
+				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2019" src={biz19} />
+				<EventCard desc="Kariyer Günleri 2018" src={k18} />
+				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2018" src={biz18} />
+				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2017" src={biz17} />
+				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2015" src={biz15} />
+			</div>
+		</ContentSection>
 		<ContentSection href="ekibimiz" title="Ekibimiz">
 			<div class="flex flex-wrap items-center justify-evenly">
 				<Person name="Arif Tolga DEMİREL" desc="Başkan" src={arifTolgaDemirel} /> 
@@ -136,19 +148,9 @@ import goletLogo from "../media/images/sponsors/golet.webp"
 			</div>
 		</ContentSection>
 		<ContentSection title="Katkıda Bulunanlar" />
-		<ContentSection href="etkinlikler" title="Önceki Etkinliklerimiz">
-			<div class="flex flex-wrap items-center justify-evenly">
-				<EventCard desc="Dijital Genç Yapay Zeka Ekosistemi Tanışma Toplantısı 2024" src={dgyz24} />
-				<EventCard desc="Yazılımcılıktan Girişimciliğe 2024" src={yg24} />
-				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2019" src={biz19} />
-				<EventCard desc="Kariyer Günleri 2018" src={k18} />
-				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2018" src={biz18} />
-				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2017" src={biz17} />
-				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2015" src={biz15} />
-			</div>
-		</ContentSection>
 	</div>
 	<Footer />
+	<GoToTopBtn />
 </Layout>
 
 <style>

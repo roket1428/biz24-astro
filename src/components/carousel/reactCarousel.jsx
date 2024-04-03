@@ -15,7 +15,7 @@ export default function reactCarousel(props) {
                 slidesPerView={1}
                 spaceBetween={30}
                 loop={true}
-                autoplay={false}
+                autoplay={true}
                 pagination={{
                     clickable: true,
                 }}
