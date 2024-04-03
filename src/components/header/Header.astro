@@ -1,0 +1,20 @@
+---
+import Navbar from "../navbar/Navbar.astro"
+import Hero from "../Hero.astro"
+---
+<div id="headerWrapper" class="flex flex-col">
+    <div id="bgVideo" class="absolute top-0 left-0 w-full h-[100vh]">
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 object-cover w-full h-full -z-10">
+            <source src="/video/bg.webm" type="video/webm" />
+        </video>
+    </div>
+    <Navbar />
+    <Hero />
+</div>
+
+<style>
+    #headerWrapper {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+    }
+</style>

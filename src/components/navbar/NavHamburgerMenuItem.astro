@@ -1,0 +1,21 @@
+---
+interface Props {
+    name: string;
+    href: string;
+    marginBtm?: boolean;
+}
+
+const { name, href, marginBtm } = Astro.props;
+
+const classList = "w-[60vw] grow " + (marginBtm ? "mb-10" : "");
+---
+
+<li class={classList}>
+    <a
+        aria-controls="hamburger-menu"
+        data-drawer-hide="hamburger-menu"
+        class="flex items-center justify-center w-full h-full"
+        href={href}>
+        <span>{name}</span>
+    </a>
+</li>

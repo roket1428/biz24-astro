@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets"
+import tubitLogo from "../../media/images/website/tubit-logo.svg"
+
+import Biz24Logo from "./Biz24Logo.astro"
+import NavHamburgerCloseBtn from "./NavHamburgerOpenBtn.astro"
+import NavHamburgerMenuItem from "./NavHamburgerMenuItem.astro"
+---
+
+<div
+    id="hamburger-menu"
+    class="fixed top-0 left-0 right-0 z-40 w-full h-full transition-transform -translate-y-full bg-blue-950"
+>
+    <div class="flex flex-col h-full">
+        <div class="flex items-center justify-between px-8 py-6">
+            <Biz24Logo />
+            <NavHamburgerCloseBtn />
+        </div>
+        <ul class="flex flex-col items-center py-12 text-xl justify-evenly grow" >
+            <NavHamburgerMenuItem name="Duyurular" href="#duyurular" marginBtm/>
+            <NavHamburgerMenuItem name="Önceki Etkinlikler" href="#etkinlikler" marginBtm/>
+            <NavHamburgerMenuItem name="Hakkında" href="#biz24" marginBtm/>
+            <NavHamburgerMenuItem name="Ekibimiz" href="#ekibimiz" marginBtm/>
+            <NavHamburgerMenuItem name="Sponsorlar" href="#sponsorlar"/>
+        </ul>
+        <div class="flex justify-center mb-12">
+            <a class="shrink-0" href="https://tubit.trakya.edu.tr" target="_blank" rel="noopener noreferrer" title="TÜBİT" >
+                <Image src={tubitLogo} alt="TÜBİT" class="w-[100px] h-[60px]" />
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,16 +1,159 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import ContentSection from "../components/ContentSection.astro";
+import Header from "../components/header/Header.astro";
+import EventCard from "../components/EventCard.astro";
+import Person from "../components/Person.astro";
+import ReactCarousel from "../components/carousel/reactCarousel.jsx";
+import CarouselItem from "../components/carousel/carouselItem.astro";
+import Footer from "../components/Footer.astro";
 
+import { Image } from "astro:assets";
+
+// announcements
+import d1 from "../media/images/announcements/d1.png"
+import d2 from "../media/images/announcements/d2.png"
+import d3 from "../media/images/announcements/d3.jpeg"
+
+// old events
+import dgyz24 from "../media/images/old-events/dgyz24.webp"
+import yg24 from "../media/images/old-events/yg24.webp"
+import biz19 from "../media/images/old-events/biz19.webp"
+import k18 from "../media/images/old-events/k18.webp"
+import biz18 from "../media/images/old-events/biz18.webp"
+import biz17 from "../media/images/old-events/biz17.webp"
+import biz15 from "../media/images/old-events/biz15.webp"
+
+// people
+import muratTopaloglu from "../media/images/people/murat_topaloglu.webp"
+import egemenTekkanat from "../media/images/people/egemen_tekkanat.webp"
+import harunOzkisi from "../media/images/people/harun_ozkisi.webp"
+import onurKara from "../media/images/people/onur_kara.webp"
+import arifTolgaDemirel from "../media/images/people/arif_tolga_demirel.webp" 
+import emirhanNarin from "../media/images/people/emirhan_narin.webp" 
+import canerYildiz from "../media/images/people/caner_yildiz.webp" 
+import enesPinar from "../media/images/people/enes_pinar.webp" 
+import kaanMutlu from "../media/images/people/kaan_mutlu.webp" 
+import mehtiBoz from "../media/images/people/mehti_boz.webp" 
+import aliEnsarAktas from "../media/images/people/ali_ensar_aktas.webp" 
+import edaPinarbasi from "../media/images/people/eda_pinarbasi.webp" 
+import esmaBorklu from "../media/images/people/esma_borklu.webp" 
+import selamiOzcan from "../media/images/people/selami_ozcan.webp" 
+
+// sponsors
+import renkasLogo from "../media/images/sponsors/renkas.svg"
+import tubitLogo from "../media/images/website/tubit-logo.svg"
+import evrenUnLogo from "../media/images/sponsors/evrenun.svg"
+import canMedikalLogo from "../media/images/sponsors/canmedikal.svg"
+import goletLogo from "../media/images/sponsors/golet.webp"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="BİZ2024" description="Bilişim ve İnovasyon Zirvesi 2024">
+	<Header />
+	<div class="relative w-full">
+		<div class="bg-trans w-full absolute h-[200px] top-[-85px]"></div>
+	</div>
+	<div class="flex flex-col mx-auto my-0 max-w-screen-2xl">
+		<ContentSection href="duyurular" title="Duyurular">
+			<div class="flex flex-col items-center justify-center">
+				<ReactCarousel client:visible >
+					<CarouselItem src={d1} alt="d1" slot="d1"/>
+					<CarouselItem src={d2} alt="d2" slot="d2"/>
+					<CarouselItem src={d3} alt="d3" slot="d3"/>
+				</ReactCarousel>
+			</div>
+		</ContentSection>
+		<ContentSection href="biz24" title="Bilişim ve İnovasyon Zirvesi 2024">
+			<div class="text-sm lg:text-xl px-14">
+				<p class="text-xl font-light text-center lg:text-2xl font-origsans">
+					Bilişim dünyasının öncü isimlerini bir araya getirmeye hazır
+					mısınız?
+				</p><br />
+				<p>
+					Tübit Kulübü olarak düzenlediğimiz BİZ24 etkinliği, bilişim
+					inovasyonunun kalbinde üç gün boyunca sizlerle olacak.
+					<strong>14-15-16 Mayıs</strong> tarihlerinde gerçekleşecek zirvemizde,
+					sektörün önde gelen yazılımcıları ilk iki günü dolduracak. Üçüncü
+					gün ise okulumuzun değerli mezunlarının katılımıyla taçlanacak.<br
+					/><br />
+					Etkinliğimiz, yarışma alanları ve proje sergileriyle dopdolu olacak.
+					Bilişim dünyasının en yeni ve heyecan verici projelerini keşfetmek
+					için bu alanları ziyaret etmeyi unutmayın. Ayrıca, konferans salonumuzda
+					düzenlenecek seminerlerde, gelen katılımcılarımız bilişim dünyasındaki
+					en güncel gelişmeleri uzmanlardan dinleme fırsatı bulacaklar.<br
+					/><br />
+					BİZ24 etkinliği, bilişimdeki son trendleri yakından takip etmek isteyen
+					herkes için bir fırsat. <u>Kayıt olmayı unutmayın</u> ve bilişim
+					dünyasının öncülerini bir araya getiren bu zirvede bizimle birlikte
+					olun!
+				</p>
+			</div>
+		</ContentSection>
+		<ContentSection href="ekibimiz" title="Ekibimiz">
+			<div class="flex flex-wrap items-center justify-evenly">
+				<Person name="Arif Tolga DEMİREL" desc="Başkan" src={arifTolgaDemirel} /> 
+				<Person name="Emirhan NARİN" desc="Başkan Yrd." src={emirhanNarin} /> 
+				<Person name="Caner YILDIZ" desc="İletişim Başkanı" src={canerYildiz} /> 
+				<Person name="Enes PINAR" desc="BST Akademi Başkanı" src={enesPinar} /> 
+				<Person name="Kaan MUTLU" desc="Sosyal Medya" src={kaanMutlu} /> 
+				<Person name="Mehti BOZ" desc="Sunucu" src={mehtiBoz} /> 
+				<Person name="Ali Ensar Aktaş" desc="Sponsorluk" src={aliEnsarAktas} /> 
+				<Person name="Eda PINARBAŞI" desc="Organizasyon" src={edaPinarbasi} /> 
+				<Person name="Esma BÖRKLÜ" desc="Organizasyon" src={esmaBorklu} /> 
+				<Person name="Selami ÖZCAN" desc="Organizasyon" src={selamiOzcan} /> 
+			</div>
+		</ContentSection>
+		<ContentSection title="Yönetim">
+			<div class="flex flex-wrap items-center justify-evenly">
+				<Person name="Murat TOPALOĞLU" desc="Doç. Dr." src={muratTopaloglu} />
+				<Person name="Egemen TEKKANAT" desc="Dr. Öğr. Üyesi" src={egemenTekkanat} />
+				<Person name="Harun ÖZKİŞİ" desc="Dr. Öğr. Üyesi" src={harunOzkisi} />
+				<Person name="Onur KARA" desc="Öğr. Gör." src={onurKara} />
+			</div>
+		</ContentSection>
+		<ContentSection href="sponsorlar" title="Sponsorlar">
+			<div class="flex flex-col items-center justify-center w-full">
+				<h1 class="px-10 text-2xl text-center text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text md:text-3xl md:px-0 w-fit" >
+					Ana Sponsor
+				</h1>
+				<Image class="m-5 mb-12 w-[320px]" src={renkasLogo} alt="Renkas"/>
+				<h1 class="px-10 pb-10 text-2xl text-center text-yellow-400 md:text-3xl md:px-0" >
+					Altın
+				</h1>
+				<Image class="m-5 mb-12" src={tubitLogo} alt="TÜBİT" />
+				<h1 class="px-10 pb-10 text-2xl text-center text-zinc-400 md:text-3xl md:px-0" >
+					Gümüş
+				</h1>
+				<Image class="m-5 mb-12 w-[320px]" src={evrenUnLogo} alt="Evren Un" />
+				<h1 class="px-10 pb-10 text-2xl text-center text-orange-300 md:text-3xl md:px-0" >
+					Bronz
+				</h1>
+				<Image class="m-5 mb-12 w-[320px]" src={canMedikalLogo} alt="Can Medikal" />
+				<h1 class="px-10 pb-10 text-2xl text-center text-white md:text-3xl md:px-0" >
+					Yemek Sponsorları
+				</h1>
+				<Image class="m-5 mb-12 w-[320px]" src={goletLogo} alt="Gölet" />
+			</div>
+		</ContentSection>
+		<ContentSection title="Katkıda Bulunanlar" />
+		<ContentSection href="etkinlikler" title="Önceki Etkinliklerimiz">
+			<div class="flex flex-wrap items-center justify-evenly">
+				<EventCard desc="Dijital Genç Yapay Zeka Ekosistemi Tanışma Toplantısı 2024" src={dgyz24} />
+				<EventCard desc="Yazılımcılıktan Girişimciliğe 2024" src={yg24} />
+				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2019" src={biz19} />
+				<EventCard desc="Kariyer Günleri 2018" src={k18} />
+				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2018" src={biz18} />
+				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2017" src={biz17} />
+				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2015" src={biz15} />
+			</div>
+		</ContentSection>
+	</div>
+	<Footer />
+</Layout>
+
+<style>
+	.bg-trans {
+		background: rgb(0,0,0);
+		background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(24,24,24,1) 50%, rgba(0,0,0,0) 100%);
+	}
+</style>

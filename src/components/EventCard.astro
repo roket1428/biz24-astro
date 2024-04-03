@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    desc: string;
+    src: ImageMetadata;
+}
+
+const { desc, src } = Astro.props;
+---
+
+<div class="m-5 lg:transition lg:ease-in lg:duration-200 lg:hover:scale-125">
+    <Image src={src} alt={desc} class="w-[300px]">
+</div>

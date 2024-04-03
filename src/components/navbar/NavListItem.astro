@@ -1,0 +1,11 @@
+---
+interface Props {
+    name: string;
+    href: string;
+}
+
+const { name, href } = Astro.props;
+---
+<li class="inline mx-5 transition-all xl:mx-8 hover:text-yellow-200">
+    <a class="xl:text-xl" href={href}>{name}</a>
+</li>

@@ -1,0 +1,13 @@
+---
+interface Props {
+    title: string;
+    href?: string;
+}
+
+const { title, href } = Astro.props;
+---
+
+<section id={href} class="mt-24 lg:mt-52 md:mx-12">
+    <h1 class="pb-10 text-4xl text-center md:text-5xl">{title}</h1>
+    <slot />
+</section>
