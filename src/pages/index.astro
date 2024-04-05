@@ -1,20 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ContentSection from "../components/ContentSection.astro";
 import Header from "../components/Header.astro";
-import GoToTopBtn from "../components/GoToTopBtn.astro";
-import EventCard from "../components/EventCard.astro";
-import Person from "../components/Person.astro";
+import ContentSection from "../components/ContentSection.astro";
 import ReactCarousel from "../components/carousel/reactCarousel.jsx";
 import CarouselItem from "../components/carousel/carouselItem.astro";
+import EventCard from "../components/EventCard.astro";
+import Person from "../components/Person.astro";
+import ImageSection from "../components/sections/ImageSection.astro";
 import Footer from "../components/Footer.astro";
+import GoToTopBtn from "../components/GoToTopBtn.astro";
 
 import { Image } from "astro:assets";
 
 // announcements
-import d1 from "../media/images/announcements/d1.png"
-import d2 from "../media/images/announcements/d2.png"
-import d3 from "../media/images/announcements/d3.jpeg"
+import d1 from "../media/images/announcements/d1.webp"
 
 // old events
 import dgyz24 from "../media/images/old-events/dgyz24.webp"
@@ -47,6 +46,12 @@ import tubitLogo from "../media/images/website/tubit-logo.svg"
 import evrenUnLogo from "../media/images/sponsors/evrenun.svg"
 import canMedikalLogo from "../media/images/sponsors/canmedikal.svg"
 import goletLogo from "../media/images/sponsors/golet.webp"
+import ImageItem from "../components/sections/ImageItem.astro";
+
+// donators
+import gesatLogo from "../media/images/donators/gesat.svg"
+import innovaLogo from "../media/images/donators/innova.svg"
+import kilifDunyasiLogo from "../media/images/donators/kilifdunyasi.svg"
 ---
 
 <Layout title="BİZ2024" description="Bilişim ve İnovasyon Zirvesi 2024">
@@ -58,9 +63,7 @@ import goletLogo from "../media/images/sponsors/golet.webp"
 		<ContentSection href="duyurular" title="Duyurular">
 			<div class="flex flex-col items-center justify-center">
 				<ReactCarousel client:visible >
-					<CarouselItem src={d1} alt="d1" slot="d1"/>
-					<CarouselItem src={d2} alt="d2" slot="d2"/>
-					<CarouselItem src={d3} alt="d3" slot="d3"/>
+					<CarouselItem src={d1} alt="Renkas Group Biz24 Etkinliğinin Ana Sponsoru oldu" slot="d1"/>
 				</ReactCarousel>
 			</div>
 		</ContentSection>
@@ -125,29 +128,30 @@ import goletLogo from "../media/images/sponsors/golet.webp"
 		</ContentSection>
 		<ContentSection href="sponsorlar" title="Sponsorlar">
 			<div class="flex flex-col items-center justify-center w-full">
-				<h1 class="px-10 text-2xl text-center text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text md:text-3xl md:px-0 w-fit" >
-					Ana Sponsor
-				</h1>
-				<Image class="m-5 mb-12 w-[320px]" src={renkasLogo} alt="Renkas"/>
-				<h1 class="px-10 pb-10 text-2xl text-center text-yellow-400 md:text-3xl md:px-0" >
-					Altın
-				</h1>
-				<Image class="m-5 mb-12" src={tubitLogo} alt="TÜBİT" />
-				<h1 class="px-10 pb-10 text-2xl text-center text-zinc-400 md:text-3xl md:px-0" >
-					Gümüş
-				</h1>
-				<Image class="m-5 mb-12 w-[320px]" src={evrenUnLogo} alt="Evren Un" />
-				<h1 class="px-10 pb-10 text-2xl text-center text-orange-300 md:text-3xl md:px-0" >
-					Bronz
-				</h1>
-				<Image class="m-5 mb-12 w-[320px]" src={canMedikalLogo} alt="Can Medikal" />
-				<h1 class="px-10 pb-10 text-2xl text-center text-white md:text-3xl md:px-0" >
-					Yemek Sponsorları
-				</h1>
-				<Image class="m-5 mb-12 w-[320px]" src={goletLogo} alt="Gölet" />
+				<ImageSection name="Ana Sponsor" class="text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text w-fit">
+					<ImageItem src={renkasLogo} alt="Renkas"/>
+				</ImageSection>
+				<ImageSection name="Altın" class="text-yellow-400">
+					<ImageItem src={tubitLogo} alt="TÜBİT" />
+				</ImageSection>
+				<ImageSection name="Gümüş" class="text-zinc-400">
+					<ImageItem src={evrenUnLogo} alt="Evren Un" />
+				</ImageSection>
+				<ImageSection name="Bronz" class="text-orange-300">
+					<ImageItem src={canMedikalLogo} alt="Can Medikal" />
+				</ImageSection>
+				<ImageSection name="Yemek Sponsorları" class="text-white">
+					<ImageItem src={goletLogo} alt="Gölet" />
+				</ImageSection>
 			</div>
 		</ContentSection>
-		<ContentSection title="Katkıda Bulunanlar" />
+		<ContentSection title="Katkıda Bulunanlar" >
+			<div class="flex flex-wrap items-center justify-evenly w-full">
+				<Image class="m-5 w-60 min-h-60" src={gesatLogo} alt={"Gesat Bay/Bayan Spor Merkezi"} />
+				<Image class="m-5 w-80 min-h-60" src={innovaLogo} alt={"Innova Spor Salonu"} />
+				<Image class="m-5 w-60 min-h-60" src={kilifDunyasiLogo} alt={"Kılıf Dünyası Keşan"} />
+			</div>
+		</ContentSection>
 	</div>
 	<Footer />
 	<GoToTopBtn />
