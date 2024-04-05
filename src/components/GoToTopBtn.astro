@@ -1,6 +1,6 @@
 <button
     id="to-top-button"
-    onclick="goToTop()"
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
     title="En üste git"
     class="fixed z-40 hidden w-16 h-16 text-3xl text-white border-0 bottom-8 right-8 bg-cover transition-all duration-300"
 >
@@ -19,25 +19,7 @@
     </div>
 </button>
 
-<script is:inline>
-    let toTopButton = document.getElementById("to-top-button");
-    let scrollDownIndicator = document.getElementById("scroll-down-indicator");
-
-    window.onscroll = function () {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            toTopButton.classList.remove("hidden");
-            scrollDownIndicator.style.opacity = 0;
-        } else {
-            toTopButton.classList.add("hidden");
-            scrollDownIndicator.style.opacity = 1;
-        }
-    }
-
-    function goToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-</script>
-
+<script src="../js/goToTop.js"></script>
 <style>
     #to-top-button {
         background-image: url("../media/images/website/altigen_koyu.svg");
