@@ -16,6 +16,8 @@ import { Image } from "astro:assets";
 // announcements
 import d1 from "../media/images/announcements/d1.webp"
 import d2 from "../media/images/announcements/d2.webp"
+import d3 from "../media/images/announcements/d3.webp"
+import d4 from "../media/images/announcements/d4.webp"
 
 // old events
 import dgyz24 from "../media/images/old-events/dgyz24.webp"
@@ -44,10 +46,12 @@ import selamiOzcan from "../media/images/people/selami_ozcan.webp"
 
 // sponsors
 import renkasLogo from "../media/images/sponsors/renkas.svg"
+import bendisAvmLogo from "../media/images/sponsors/bendisavm.svg"
 import sapciAkaryakitLogo from "../media/images/sponsors/sapci-akaryakit.svg"
 import evrenUnLogo from "../media/images/sponsors/evrenun.svg"
 import canMedikalLogo from "../media/images/sponsors/canmedikal.svg"
 import goletLogo from "../media/images/sponsors/golet.webp"
+import dilimsPizzaLogo from "../media/images/sponsors/dilimspizza.svg"
 
 // donators
 import gesatLogo from "../media/images/donators/gesat.svg"
@@ -64,8 +68,10 @@ import kilifDunyasiLogo from "../media/images/donators/kilifdunyasi.svg"
 		<ContentSection href="duyurular" title="Duyurular">
 			<div class="flex flex-col items-center justify-center">
 				<ReactCarousel client:visible >
-					<CarouselItem src={d1} alt="Renkas Group Biz24 Etkinliğinin Ana Sponsoru Oldu" slot="d1"/>
-					<CarouselItem src={d2} alt="Şapçı Akaryakıt Biz24 Etkinliğinin Altın Sponsoru Oldu" slot="d2"/>
+					<CarouselItem src={d1} alt="Renkas Group BİZ24 Etkinliğinin Ana Sponsoru Oldu" slot="d1"/>
+					<CarouselItem src={d2} alt="Şapçı Akaryakıt BİZ24 Etkinliğinin Altın Sponsoru Oldu" slot="d2"/>
+					<CarouselItem src={d3} alt="Bendis AVM BİZ24 Etkinliğinin Ana Sponsoru Oldu" slot="d3"/>
+					<CarouselItem src={d4} alt="Dilim's Pizza BİZ24 Etkinliğinin Yemek Sponsoru Oldu" slot="d4"/>
 				</ReactCarousel>
 			</div>
 		</ContentSection>
@@ -130,8 +136,9 @@ import kilifDunyasiLogo from "../media/images/donators/kilifdunyasi.svg"
 		</ContentSection>
 		<ContentSection href="sponsorlar" title="Sponsorlar">
 			<div class="flex flex-col items-center justify-center w-full">
-				<ImageSection name="Ana Sponsor" class="text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text w-fit">
+				<ImageSection name="Ana Sponsorlar" class="text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text w-fit">
 					<ImageItem src={renkasLogo} alt="Renkas"/>
+					<ImageItem src={bendisAvmLogo} alt="Bendis AVM"/>
 				</ImageSection>
 				<ImageSection name="Altın" class="text-yellow-400">
 					<ImageItem src={sapciAkaryakitLogo} alt="Şapçı Akaryakıt" />
@@ -144,6 +151,7 @@ import kilifDunyasiLogo from "../media/images/donators/kilifdunyasi.svg"
 				</ImageSection>
 				<ImageSection name="Yemek Sponsorları" class="text-white">
 					<ImageItem src={goletLogo} alt="Gölet" />
+					<ImageItem src={dilimsPizzaLogo} alt="Dilim's Pizza" />
 				</ImageSection>
 			</div>
 		</ContentSection>
