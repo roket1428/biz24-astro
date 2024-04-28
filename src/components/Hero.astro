@@ -3,11 +3,11 @@ import { Image } from "astro:assets"
 import bizLogo from "../media/images/website/biz-logo.svg"
 ---
 <section class="relative flex flex-col items-center justify-around grow">
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center text-shadow">
         <Image
             src={bizLogo}
             alt="BİZ24 Logo"
-            class="w-[230px] h-[100px] mb-[60px]"
+            class="w-[230px] h-[100px] mb-[60px] drop-shadow-md"
             loading={"eager"}
         />
         <div class="flex mb-5">
@@ -61,5 +61,11 @@ import bizLogo from "../media/images/website/biz-logo.svg"
         </svg>
     </a>
 </section>
+
+<style>
+    .text-shadow {
+        text-shadow: 0px 0px 15px #000000;
+    }
+</style>
 
 <script src="../js/countdown.js"></script>
