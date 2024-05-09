@@ -4,11 +4,14 @@ import { Image } from 'astro:assets';
 interface Props {
     desc: string;
     src: ImageMetadata;
+    lbid: string;
 }
 
-const { desc, src } = Astro.props;
+const { desc, src, lbid } = Astro.props;
 ---
 
-<div class="m-5 lg:transition lg:ease-in lg:duration-200 lg:hover:scale-125">
-    <Image src={src} alt={desc} class="w-[300px]">
+<div class="timeline m-5 lg:transition lg:ease-in lg:duration-200 lg:hover:scale-125">
+    <a data-fslightbox={lbid} href={src.src}>
+        <Image src={src} alt={desc} class="w-[300px]">
+    </a>
 </div>

@@ -42,6 +42,7 @@ import aliEnsarAktas from "../media/images/people/ali_ensar_aktas.webp"
 import edaPinarbasi from "../media/images/people/eda_pinarbasi.webp"
 import esmaBorklu from "../media/images/people/esma_borklu.webp"
 import selamiOzcan from "../media/images/people/selami_ozcan.webp"
+import yarenBarni from "../media/images/people/yaren_barni.webp"
 
 // sponsors
 import renkasLogo from "../media/images/sponsors/renkas.svg"
@@ -61,6 +62,14 @@ import pyramidEsporLogo from "../media/images/donators/pyramidespor.svg"
 import turkcellDolunayIletisimLogo from "../media/images/donators/turkcelldolunayiletisim.svg"
 import obaliogluLogo from "../media/images/donators/obalioglu.svg"
 import promasLogo from "../media/images/donators/promas.svg"
+import komageneLogo from "../media/images/donators/komagene.svg"
+import tadimLogo from "../media/images/donators/tadim.svg"
+import batiReklamLogo from "../media/images/donators/batireklam.webp"
+
+//timeline
+import dayOne from "../media/images/timeline/1.webp"
+import dayTwo from "../media/images/timeline/2.webp"
+
 ---
 
 <Layout title="BİZ2024" description="Bilişim ve İnovasyon Zirvesi 2024">
@@ -69,6 +78,12 @@ import promasLogo from "../media/images/donators/promas.svg"
 		<div class="bg-trans w-full absolute h-[200px] top-[-85px]"></div>
 	</div>
 	<div class="flex flex-col mx-auto my-0 max-w-screen-2xl">
+		<ContentSection href="etkinlikler" title="Akış">
+			<div class="flex flex-wrap items-center justify-evenly">
+				<EventCard lbid="timeline" desc="" src={dayOne} />
+				<EventCard lbid="timeline" desc="" src={dayTwo} />
+			</div>
+		</ContentSection>
 		<ContentSection href="duyurular" title="Duyurular">
 			<div class="flex flex-col items-center justify-center">
 				<ReactCarousel client:visible >
@@ -115,6 +130,7 @@ import promasLogo from "../media/images/donators/promas.svg"
 				<Person name="Arif Tolga DEMİREL" desc="Başkan" src={arifTolgaDemirel} />
 				<Person name="Emirhan NARİN" desc="Başkan Yrd." src={emirhanNarin} />
 				<Person name="Caner YILDIZ" desc="İletişim Başkanı" src={canerYildiz} />
+				<Person name="Yaren BARNİ" desc="İletişim Başkan Yrd." src={yarenBarni} />
 				<Person name="Enes PINAR" desc="BST Akademi Başkanı" src={enesPinar} />
 				<Person name="Kaan MUTLU" desc="Sosyal Medya" src={kaanMutlu} />
 				<Person name="Ali Ensar Aktaş" desc="Sponsorluk" src={aliEnsarAktas} />
@@ -146,6 +162,7 @@ import promasLogo from "../media/images/donators/promas.svg"
 				<ImageSection name="Bronz" class="text-orange-300">
 					<ImageItem src={canMedikalLogo} alt="Can Medikal" />
 					<ImageItem src={craftDijitalLogo} alt="CRAFTDİJİTAL" />
+					<ImageItem src={batiReklamLogo} alt="Batı Reklam" />
 				</ImageSection>
 				<ImageSection name="Yemek Sponsorları" class="text-white">
 					<ImageItem src={goletLogo} alt="Gölet" />
@@ -153,26 +170,28 @@ import promasLogo from "../media/images/donators/promas.svg"
 				</ImageSection>
 			</div>
 		</ContentSection>
-		<ContentSection title="Katkıda Bulunanlar" >
+		<ContentSection title="Katkıda Bulunanlar">
 			<div class="flex flex-wrap items-center justify-evenly w-full">
 				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={turkcellDolunayIletisimLogo} alt={"Turkcell Dolunay İletişim"} />
 				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={innovaLogo} alt={"İnnova Spor Salonu"} />
 				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={pyramidEsporLogo} alt={"PYRAMID E-SPOR"} />
 				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={promasLogo} alt={"PROMAS MATBAA PROMOSYON REKLAM"} />
-				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={obaliogluLogo} alt={"Obalıoğlu Peynircilik"} />
+				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={tadimLogo} alt={"TADIM PASTA & CAFE"} />
+				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60 object-contain" src={komageneLogo} alt={"Komagene Etsiz Çiğköfte"} />
 				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60 object-contain" src={gesatLogo} alt={"Gesat Bay/Bayan Spor Merkezi"} />
+				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60 object-contain" src={obaliogluLogo} alt={"Obalıoğlu Peynircilik"} />
 				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={kilifDunyasiLogo} alt={"Kılıf Dünyası Keşan"} />
 			</div>
 		</ContentSection>
 		<ContentSection href="etkinlikler" title="Önceki Etkinliklerimiz">
 			<div class="flex flex-wrap items-center justify-evenly">
-				<EventCard desc="Dijital Genç Yapay Zeka Ekosistemi Tanışma Toplantısı 2024" src={dgyz24} />
-				<EventCard desc="Yazılımcılıktan Girişimciliğe 2024" src={yg24} />
-				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2019" src={biz19} />
-				<EventCard desc="Kariyer Günleri 2018" src={k18} />
-				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2018" src={biz18} />
-				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2017" src={biz17} />
-				<EventCard desc="Bilişim ve İnovasyon Zirvesi 2015" src={biz15} />
+				<EventCard lbid="old-events" desc="Dijital Genç Yapay Zeka Ekosistemi Tanışma Toplantısı 2024" src={dgyz24} />
+				<EventCard lbid="old-events" desc="Yazılımcılıktan Girişimciliğe 2024" src={yg24} />
+				<EventCard lbid="old-events" desc="Bilişim ve İnovasyon Zirvesi 2019" src={biz19} />
+				<EventCard lbid="old-events" desc="Kariyer Günleri 2018" src={k18} />
+				<EventCard lbid="old-events" desc="Bilişim ve İnovasyon Zirvesi 2018" src={biz18} />
+				<EventCard lbid="old-events" desc="Bilişim ve İnovasyon Zirvesi 2017" src={biz17} />
+				<EventCard lbid="old-events" desc="Bilişim ve İnovasyon Zirvesi 2015" src={biz15} />
 			</div>
 		</ContentSection>
 	</div>
@@ -186,3 +205,5 @@ import promasLogo from "../media/images/donators/promas.svg"
 		background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(24,24,24,1) 50%, rgba(0,0,0,0) 100%);
 	}
 </style>
+
+<script src="../js/fslightbox.js"></script>
