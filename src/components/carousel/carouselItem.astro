@@ -11,5 +11,5 @@ interface Props {
 const { src, alt, loading } = Astro.props;
 ---
 <div class="flex items-center justify-center w-full">
-    <Image src={src} alt={alt} loading={loading ? loading : "lazy"}/>
+    <Image src={src} alt={alt} loading={loading ? loading : "eager"}/>
 </div>
