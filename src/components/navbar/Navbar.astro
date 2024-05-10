@@ -10,16 +10,17 @@ import NavHamburgerOpenBtn from "./NavHamburgerOpenBtn.astro"
 <nav class="relative flex flex-col bg-zinc-500 bg-opacity-5">
     <div class="flex items-center justify-between px-8 py-6">
         <Biz24Logo />
-        <div class="hidden lg:block">
+        <div class="hidden ll:block">
             <ul>
+                <NavListItem name="Program" href="#program"/>
                 <NavListItem name="Duyurular" href="#duyurular"/>
                 <NavListItem name="Etkinlik Hakkında" href="#biz24"/>
-                <NavListItem name="Kayıt Ol" href="https://forms.gle/WYaTzghgAvFHBjJ6A"/>
                 <NavListItem name="Ekibimiz" href="#ekibimiz"/>
                 <NavListItem name="Sponsorlar" href="#sponsorlar"/>
+                <NavListItem name="Kayıt Ol" href="https://forms.gle/WYaTzghgAvFHBjJ6A"/>
             </ul>
         </div>
-        <a class="hidden shrink-0 lg:block" href="https://tubit.trakya.edu.tr" target="_blank" rel="noopener noreferrer" title="TÜBİT" >
+        <a class="hidden shrink-0 ll:block" href="https://tubit.trakya.edu.tr" target="_blank" rel="noopener noreferrer" title="TÜBİT" >
             <Image src={tubitLogo} alt="TÜBİT" class="w-[100px] h-[60px]" loading={"eager"}/>
         </a>
         <NavHamburgerOpenBtn/>

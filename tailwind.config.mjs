@@ -9,6 +9,9 @@ export default {
 				sans: ['olneylight', ...defaultTheme.fontFamily.sans],
 				origsans: defaultTheme.fontFamily.sans,
 			},
+			screens: {
+				"ll": "1150px"
+			}
 		},
 	},
 	plugins: [],

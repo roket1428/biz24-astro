@@ -4,8 +4,10 @@ import Header from "../components/Header.astro";
 import ContentSection from "../components/ContentSection.astro";
 import ReactCarousel from "../components/carousel/reactCarousel.jsx";
 import CarouselItem from "../components/carousel/carouselItem.astro";
+import ProgramCard from "../components/ProgramCard.astro";
 import EventCard from "../components/EventCard.astro";
 import Person from "../components/Person.astro";
+import SponsorSection from "../components/sections/SponsorSection.astro"
 import ImageSection from "../components/sections/ImageSection.astro";
 import ImageItem from "../components/sections/ImageItem.astro";
 import Footer from "../components/Footer.astro";
@@ -14,10 +16,11 @@ import GoToTopBtn from "../components/GoToTopBtn.astro";
 import { Image } from "astro:assets";
 
 // announcements
-import d1 from "../media/images/announcements/d1.webp"
-import d2 from "../media/images/announcements/d2.webp"
-import d3 from "../media/images/announcements/d3.webp"
-import d4 from "../media/images/announcements/d4.webp"
+import d1 from "../media/images/announcements/banner.webp"
+import d2 from "../media/images/announcements/d1.webp"
+import d3 from "../media/images/announcements/d2.webp"
+import d4 from "../media/images/announcements/d3.webp"
+import d5 from "../media/images/announcements/d4.webp"
 
 // old events
 import dgyz24 from "../media/images/old-events/dgyz24.webp"
@@ -54,6 +57,8 @@ import craftDijitalLogo from "../media/images/sponsors/craftdijital.svg"
 import batiReklamLogo from "../media/images/sponsors/batireklam.webp"
 import goletLogo from "../media/images/sponsors/golet.webp"
 import dilimsPizzaLogo from "../media/images/sponsors/dilimspizza.svg"
+import kesanBelLogo from "../media/images/sponsors/kesanbelediyesi.svg"
+import kesantsoLogo from "../media/images/sponsors/kesantso.svg"
 
 // donators
 import gesatLogo from "../media/images/donators/gesat.svg"
@@ -69,6 +74,7 @@ import tadimLogo from "../media/images/donators/tadim.svg"
 //timeline
 import dayOne from "../media/images/timeline/1.webp"
 import dayTwo from "../media/images/timeline/2.webp"
+import dayThree from "../media/images/timeline/3.webp"
 
 ---
 
@@ -78,25 +84,27 @@ import dayTwo from "../media/images/timeline/2.webp"
 		<div class="bg-trans w-full absolute h-[200px] top-[-85px]"></div>
 	</div>
 	<div class="flex flex-col mx-auto my-0 max-w-screen-2xl">
-		<ContentSection href="etkinlikler" title="Akış">
+		<ContentSection href="program" title="Program">
 			<div class="flex flex-wrap items-center justify-evenly">
-				<EventCard lbid="timeline" desc="Etkinliğin ilk gününün akışı" src={dayOne} />
-				<EventCard lbid="timeline" desc="Etkinliğin ikinci gününün akışı" src={dayTwo} />
+				<ProgramCard name="1. Gün" lbid="timeline" desc="Etkinliğin ilk gününün programı" src={dayOne} />
+				<ProgramCard name="2. Gün" lbid="timeline" desc="Etkinliğin ikinci gününün programı" src={dayTwo} />
+				<ProgramCard name="3. Gün" lbid="timeline" desc="Etkinliğin üçüncü gününün programı" src={dayThree} />
 			</div>
 		</ContentSection>
 		<ContentSection href="duyurular" title="Duyurular">
 			<div class="flex flex-col items-center justify-center">
 				<ReactCarousel client:visible >
-					<CarouselItem src={d1} alt="Renkas Group BİZ24 Etkinliğinin Ana Sponsoru Oldu" slot="d1"/>
-					<CarouselItem src={d2} alt="Şapçı Akaryakıt BİZ24 Etkinliğinin Altın Sponsoru Oldu" slot="d2"/>
-					<CarouselItem src={d3} alt="Bendis AVM BİZ24 Etkinliğinin Ana Sponsoru Oldu" slot="d3"/>
-					<CarouselItem src={d4} alt="Dilim's Pizza BİZ24 Etkinliğinin Yemek Sponsoru Oldu" slot="d4"/>
+					<CarouselItem src={d1} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="d1"/>
+					<CarouselItem src={d2} alt="Renkas Group BİZ24 Etkinliğinin Ana Sponsoru Oldu" slot="d2"/>
+					<CarouselItem src={d3} alt="Şapçı Akaryakıt BİZ24 Etkinliğinin Altın Sponsoru Oldu" slot="d3"/>
+					<CarouselItem src={d4} alt="Bendis AVM BİZ24 Etkinliğinin Ana Sponsoru Oldu" slot="d4"/>
+					<CarouselItem src={d5} alt="Dilim's Pizza BİZ24 Etkinliğinin Yemek Sponsoru Oldu" slot="d5"/>
 				</ReactCarousel>
 			</div>
 		</ContentSection>
 		<ContentSection href="biz24" title="Bilişim ve İnovasyon Zirvesi 2024">
 			<div class="px-14">
-				<p class="text-xl font-light lg:text-2xl font-origsans">
+				<p class="text-xl font-light lg:text-2xl font-origsans text-center">
 					Bilişim dünyasının öncü isimlerini bir araya getirmeye hazır
 					mısınız?
 				</p><br />
@@ -147,23 +155,31 @@ import dayTwo from "../media/images/timeline/2.webp"
 				<Person name="Onur KARA" desc="Öğr. Gör." src={onurKara} />
 			</div>
 		</ContentSection>
+		<ContentSection href="destekcikurumlar" title="Destek Sağlayan Kurumlar">
+			<div class="flex flex-wrap items-center justify-evenly w-full">
+				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={kesanBelLogo} alt={"Keşan Belediyesi"} />
+				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={kesantsoLogo} alt={"Keşan Ticaret ve Sanayi Odası"} />
+			</div>
+		</ContentSection>
 		<ContentSection href="sponsorlar" title="Sponsorlar">
 			<div class="flex flex-col items-center justify-center w-full">
 				<ImageSection name="Ana Sponsorlar" class="text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text w-fit">
 					<ImageItem src={renkasLogo} alt="Renkas"/>
 					<ImageItem src={bendisAvmLogo} alt="Bendis AVM"/>
 				</ImageSection>
-				<ImageSection name="Altın" class="text-yellow-400">
-					<ImageItem src={sapciAkaryakitLogo} alt="Şapçı Akaryakıt" />
-				</ImageSection>
-				<ImageSection name="Gümüş" class="text-zinc-400">
-					<ImageItem src={evrenUnLogo} alt="Evren Un" />
-				</ImageSection>
-				<ImageSection name="Bronz" class="text-orange-300">
-					<ImageItem src={canMedikalLogo} alt="Can Medikal" />
-					<ImageItem src={craftDijitalLogo} alt="CRAFTDİJİTAL" />
-					<ImageItem src={batiReklamLogo} alt="Batı Reklam" />
-				</ImageSection>
+				<div class="flex flex-wrap items-center justify-around">
+					<SponsorSection name="Altın" class="text-yellow-400">
+						<ImageItem src={sapciAkaryakitLogo} alt="Şapçı Akaryakıt" />
+					</SponsorSection>
+					<SponsorSection name="Gümüş" class="text-zinc-400">
+						<ImageItem src={evrenUnLogo} alt="Evren Un" />
+					</SponsorSection>
+					<SponsorSection name="Bronz" class="text-orange-300">
+						<ImageItem src={canMedikalLogo} alt="Can Medikal" />
+						<ImageItem src={craftDijitalLogo} alt="CRAFTDİJİTAL" />
+						<ImageItem src={batiReklamLogo} alt="Batı Reklam" />
+					</SponsorSection>
+				</div>
 				<ImageSection name="Yemek Sponsorları" class="text-white">
 					<ImageItem src={goletLogo} alt="Gölet" />
 					<ImageItem src={dilimsPizzaLogo} alt="Dilim's Pizza" />

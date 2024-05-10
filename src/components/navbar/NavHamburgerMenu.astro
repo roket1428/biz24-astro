@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets"
 import tubitLogo from "../../media/images/website/tubit-logo.svg"
-
 import Biz24Logo from "./Biz24Logo.astro"
 import NavHamburgerCloseBtn from "./NavHamburgerCloseBtn.astro"
 import NavHamburgerMenuItem from "./NavHamburgerMenuItem.astro"
@@ -17,11 +16,12 @@ import NavHamburgerMenuItem from "./NavHamburgerMenuItem.astro"
             <NavHamburgerCloseBtn />
         </div>
         <ul class="flex flex-col items-center py-12 text-xl justify-evenly grow" >
+            <NavHamburgerMenuItem name="Program" href="#program" marginBtm/>
             <NavHamburgerMenuItem name="Duyurular" href="#duyurular" marginBtm/>
             <NavHamburgerMenuItem name="Etkinlik Hakkında" href="#biz24" marginBtm/>
-            <NavHamburgerMenuItem name="Kayıt Ol" href="https://forms.gle/WYaTzghgAvFHBjJ6A" marginBtm/>
             <NavHamburgerMenuItem name="Ekibimiz" href="#ekibimiz" marginBtm/>
-            <NavHamburgerMenuItem name="Sponsorlar" href="#sponsorlar"/>
+            <NavHamburgerMenuItem name="Sponsorlar" href="#sponsorlar" marginBtm/>
+            <NavHamburgerMenuItem name="Kayıt Ol" href="https://forms.gle/WYaTzghgAvFHBjJ6A" />
         </ul>
         <div class="flex justify-center mb-12">
             <a class="shrink-0" href="https://tubit.trakya.edu.tr" target="_blank" rel="noopener noreferrer" title="TÜBİT" >
