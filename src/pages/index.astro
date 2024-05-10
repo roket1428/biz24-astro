@@ -16,11 +16,19 @@ import GoToTopBtn from "../components/GoToTopBtn.astro";
 import { Image } from "astro:assets";
 
 // announcements
-import d1 from "../media/images/announcements/banner.webp"
-import d2 from "../media/images/announcements/d1.webp"
-import d3 from "../media/images/announcements/d2.webp"
-import d4 from "../media/images/announcements/d3.webp"
-import d5 from "../media/images/announcements/d4.webp"
+import banner from "../media/images/announcements/banner.webp"
+import d1 from "../media/images/announcements/1.webp"
+import d2 from "../media/images/announcements/2.webp"
+import d3 from "../media/images/announcements/3.webp"
+import d4 from "../media/images/announcements/4.webp"
+import d5 from "../media/images/announcements/5.webp"
+import d6 from "../media/images/announcements/6.webp"
+import d7 from "../media/images/announcements/7.webp"
+import d8 from "../media/images/announcements/8.webp"
+import d9 from "../media/images/announcements/9.webp"
+import d10 from "../media/images/announcements/10.webp"
+import d11 from "../media/images/announcements/11.webp"
+import d12 from "../media/images/announcements/12.webp"
 
 // old events
 import dgyz24 from "../media/images/old-events/dgyz24.webp"
@@ -94,11 +102,19 @@ import dayThree from "../media/images/timeline/3.webp"
 		<ContentSection href="duyurular" title="Duyurular">
 			<div class="flex flex-col items-center justify-center">
 				<ReactCarousel client:visible >
-					<CarouselItem src={d1} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="d1"/>
-					<CarouselItem src={d2} alt="Renkas Group BİZ24 Etkinliğinin Ana Sponsoru Oldu" slot="d2"/>
-					<CarouselItem src={d3} alt="Şapçı Akaryakıt BİZ24 Etkinliğinin Altın Sponsoru Oldu" slot="d3"/>
-					<CarouselItem src={d4} alt="Bendis AVM BİZ24 Etkinliğinin Ana Sponsoru Oldu" slot="d4"/>
-					<CarouselItem src={d5} alt="Dilim's Pizza BİZ24 Etkinliğinin Yemek Sponsoru Oldu" slot="d5"/>
+					<CarouselItem src={banner} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="1"/>
+					<CarouselItem src={d1} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="2"/>
+					<CarouselItem src={d2} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="3"/>
+					<CarouselItem src={d3} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="4"/>
+					<CarouselItem src={d4} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="5"/>
+					<CarouselItem src={d5} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="6"/>
+					<CarouselItem src={d6} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="7"/>
+					<CarouselItem src={d7} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="8"/>
+					<CarouselItem src={d8} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="9"/>
+					<CarouselItem src={d9} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="10"/>
+					<CarouselItem src={d10} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="11"/>
+					<CarouselItem src={d11} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="12"/>
+					<CarouselItem src={d12} alt="Bilişim ve İnovasyon Zirvesine Davetlisiniz" slot="13"/>
 				</ReactCarousel>
 			</div>
 		</ContentSection>
@@ -155,12 +171,6 @@ import dayThree from "../media/images/timeline/3.webp"
 				<Person name="Onur KARA" desc="Öğr. Gör." src={onurKara} />
 			</div>
 		</ContentSection>
-		<ContentSection href="destekcikurumlar" title="Destek Sağlayan Kurumlar">
-			<div class="flex flex-wrap items-center justify-evenly w-full">
-				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={kesanBelLogo} alt={"Keşan Belediyesi"} />
-				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={kesantsoLogo} alt={"Keşan Ticaret ve Sanayi Odası"} />
-			</div>
-		</ContentSection>
 		<ContentSection href="sponsorlar" title="Sponsorlar">
 			<div class="flex flex-col items-center justify-center w-full">
 				<ImageSection name="Ana Sponsorlar" class="text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text w-fit">
@@ -184,6 +194,12 @@ import dayThree from "../media/images/timeline/3.webp"
 					<ImageItem src={goletLogo} alt="Gölet" />
 					<ImageItem src={dilimsPizzaLogo} alt="Dilim's Pizza" />
 				</ImageSection>
+			</div>
+		</ContentSection>
+		<ContentSection title="Destek Sağlayan Kurumlar">
+			<div class="flex flex-wrap items-center justify-evenly w-full">
+				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={kesanBelLogo} alt={"Keşan Belediyesi"} />
+				<Image class="my-10 mx-16 w-60 min-h-60 max-h-60" src={kesantsoLogo} alt={"Keşan Ticaret ve Sanayi Odası"} />
 			</div>
 		</ContentSection>
 		<ContentSection title="Katkıda Bulunanlar">
