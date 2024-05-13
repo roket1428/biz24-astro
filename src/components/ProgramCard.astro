@@ -5,15 +5,21 @@ interface Props {
     name: string;
     desc: string;
     src: ImageMetadata;
+    src2: ImageMetadata;
     lbid: string;
 }
 
-const { name, desc, src, lbid } = Astro.props;
+const { name, desc, src, src2, lbid } = Astro.props;
 ---
 
-<div class="timeline m-5 lg:transition lg:ease-in lg:duration-200 lg:hover:scale-125">
-    <h1 class="text-xl text-center">{name}</h1>
-    <a data-fslightbox={lbid} href={src.src}>
-        <Image src={src} alt={desc} class="w-[300px]">
-    </a>
+<div class="timeline flex flex-col m-5 lg:transition lg:ease-in lg:duration-200 lg:hover:scale-105 rounded-lg border border-gray-600 p-3 bg-[#1D1D1D]">
+    <h1 class="text-xl text-center mb-1">{name}</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <a data-fslightbox={lbid} href={src.src}>
+            <Image src={src} alt={desc} class="w-[300px]">
+        </a>
+        <a data-fslightbox={lbid} href={src2.src}>
+            <Image src={src2} alt={desc} class="w-[300px]">
+        </a>
+    </div>
 </div>

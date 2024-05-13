@@ -3,34 +3,66 @@ import { Image } from "astro:assets"
 import bizLogo from "../media/images/website/biz-logo.svg"
 ---
 <section class="relative flex flex-col items-center justify-around grow">
-    <div class="flex flex-col items-center text-shadow">
+    <div class="flex flex-col items-center text-shadow grow justify-center hero w-full">
         <Image
             src={bizLogo}
             alt="BİZ24 Logo"
             class="w-[230px] h-[100px] mb-[60px] drop-shadow-md"
             loading={"eager"}
         />
-        <div class="flex mb-5">
+        <div id="eventStatus" class="hidden w-full max-w-screen-lg px-5 md:px-0">
+            <div class="flex flex-col items-start w-full">
+                <div class="flex items-center justify-center w-full">
+                    <div class="flex">
+                        <svg class="w-8 h-8 text-white md:w-12 md:h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" >
+                            <path fill-rule="evenodd" d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd"></path>
+                        </svg>
+                        <h1 id="currentEventDay" class="ml-2 mr-5 text-2xl sm:text-3xl md:text-5xl"></h1>
+                    </div>
+                </div>
+                <div class="mt-8 w-full px-5">
+                    <div class="flex justify-between items-center w-full">
+                        <h1 class="text-3xl md:text-5xl">Etkinlik:</h1>
+                        <div class="flex items-center">
+                            <span class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                            </span>
+                            <p class="ml-1 sm:text-xl lg:text-2xl">Canlı</p>
+                        </div>
+                    </div>
+                    <h2 id="currentEventSpeaker"class="sm:text-xl md:text-2xl"></h2>
+                    <h2 id="currentEvent" class="text-xl sm:text-2xl md:text-3xl"></h2>
+                </div>
+                <div class="mt-12 w-full px-5">
+                    <div class="flex justify-between items-center w-full">
+                        <h1 class="text-3xl md:text-5xl">Sıradaki:</h1>
+                        <p id="nextEventDate" class="sm:text-xl lg:text-2xl"></p>
+                    </div>
+                    <h2 id="nextEventSpeaker"class="sm:text-xl md:text-2xl"></h2>
+                    <h2 id="nextEvent"class="text-xl sm:text-2xl md:text-3xl"></h2>
+                </div>
+            </div>
+        </div>
+        <div id="eventCountdownDate" class="hidden mb-5">
             <svg class="w-8 h-8 text-white md:w-12 md:h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" >
                 <path fill-rule="evenodd" d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd"></path>
             </svg>
-            <h1 class="ml-2 mr-5 text-2xl sm:text-3xl md:text-5xl">
-                14.05.2024
-            </h1>
+            <h1 id="eventCountdownDateText" class="ml-2 mr-5 text-2xl sm:text-3xl md:text-5xl"></h1>
             <svg class="w-8 h-8 text-white md:w-12 md:h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" >
                 <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"></path>
             </svg>
-            <h1 class="ml-2 text-2xl sm:text-3xl md:text-5xl">10.00</h1>
+            <h1 id="eventCountdownTimeText" class="ml-2 text-2xl sm:text-3xl md:text-5xl"></h1>
         </div>
-        <h1 class="text-3xl md:text-5xl" id="eventCountdownTitle">
+        <h1 id="eventCountdownTitle" class="hidden text-3xl md:text-5xl">
             Etkinliğe Kalan
         </h1>
-        <div class="flex flex-row items-center px-4" id="eventCountdown">
-            <div class="flex flex-col">
+        <div id="eventCountdownTimer" class="hidden flex-row items-center px-4">
+            <div id="countdownDay" class="flex flex-col">
                 <p class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2" id="eventCountdownDay" > 00 </p>
                 <p class="text-xs text-center md:text-2xl">Gün</p>
             </div>
-            <p class="mx-2 text-3xl text-center sm:text-4xl md:text-6xl md:mx-4" > : </p>
+            <p id="countdownDayColon" class="mx-2 text-3xl text-center sm:text-4xl md:text-6xl md:mx-4" > : </p>
             <div class="flex flex-col">
                 <p class="text-5xl text-center sm:text-6xl md:text-8xl md:mr-2" id="eventCountdownHour" > 00 </p>
                 <p class="text-xs text-center md:text-2xl">Saat</p>
@@ -48,7 +80,7 @@ import bizLogo from "../media/images/website/biz-logo.svg"
         </div>
     </div>
     <a
-        class="relative flex flex-col items-center transition duration-200 ease-in-out justify-evenly"
+        class="relative flex flex-col items-center transition duration-200 ease-in-out grow justify-center"
         href="#program"
         aria-label="Sayfanın içeriğine git"
         id="scroll-down-indicator"
@@ -65,6 +97,11 @@ import bizLogo from "../media/images/website/biz-logo.svg"
 <style is:global>
     .text-shadow {
         text-shadow: 0px 0px 15px #000000;
+    }
+    .hero {
+        --hero-height: calc(((var(--height) - 3964.771) / -44.40275) * 1%);
+        min-height: var(--hero-height);
+        max-height: var(--hero-height);
     }
 </style>
 

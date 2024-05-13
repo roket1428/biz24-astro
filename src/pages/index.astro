@@ -83,8 +83,11 @@ import yesilbursaLogo from "../media/images/donators/yesilbursa.svg"
 
 //timeline
 import dayOne from "../media/images/timeline/1.webp"
+import dayOneTimeline from "../media/images/timeline/1-timeline.webp"
 import dayTwo from "../media/images/timeline/2.webp"
+import dayTwoTimeline from "../media/images/timeline/2-timeline.webp"
 import dayThree from "../media/images/timeline/3.webp"
+import dayThreeTimeline from "../media/images/timeline/3-timeline.webp"
 
 ---
 
@@ -96,9 +99,24 @@ import dayThree from "../media/images/timeline/3.webp"
 	<div class="flex flex-col mx-auto my-0 max-w-screen-2xl">
 		<ContentSection href="program" title="Program">
 			<div class="flex flex-wrap items-center justify-evenly">
-				<ProgramCard name="1. Gün" lbid="timeline" desc="Etkinliğin ilk gününün programı" src={dayOne} />
-				<ProgramCard name="2. Gün" lbid="timeline" desc="Etkinliğin ikinci gününün programı" src={dayTwo} />
-				<ProgramCard name="3. Gün" lbid="timeline" desc="Etkinliğin üçüncü gününün programı" src={dayThree} />
+				<ProgramCard
+					name="1. Gün"
+					lbid="timelineOne"
+					desc="Etkinliğin ilk gününün programı"
+					src={dayOne}
+					src2={dayOneTimeline} />
+				<ProgramCard
+					name="2. Gün"
+					lbid="timelineTwo"
+					desc="Etkinliğin ikinci gününün programı"
+					src={dayTwo}
+					src2={dayTwoTimeline} />
+				<ProgramCard
+					name="3. Gün"
+					lbid="timelineThree"
+					desc="Etkinliğin üçüncü gününün programı"
+					src={dayThree}
+					src2={dayThreeTimeline}/>
 			</div>
 		</ContentSection>
 		<ContentSection href="duyurular" title="Duyurular">
