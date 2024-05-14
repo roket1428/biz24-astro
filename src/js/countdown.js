@@ -1,7 +1,7 @@
 // events first day
 let countdownTime = new Date("2024-05-14T10:00:00").getTime();
 let currentTime = new Date().getTime();
-// let currentTime = new Date("2024-05-14T11:59:55").getTime();
+// let currentTime = new Date("2024-05-15T14:44:55").getTime();
 let timeRemaining = countdownTime - currentTime;
 // let currenTimeCounter = setInterval(() => {
 //     currentTime += 1000;
@@ -10,11 +10,12 @@ let timeRemaining = countdownTime - currentTime;
 if (timeRemaining > 0) {
     countdownTimer(countdownTime, "14.05.2024", "10.00", "Etkinliğe Kalan", false);
 } else {
+    showEventStatusContainer();
     updateEventStatus();
 }
 
 function countdownTimer(countdownTime, date, time, title, hideDay) {
-    document.getElementById("eventStatus").classList.add("hidden");
+    hideEventStatusContainer();
     let eventCountdownDate = document.getElementById("eventCountdownDate");
     let eventCountdownTitle = document.getElementById("eventCountdownTitle");
     let eventCountdownTimer = document.getElementById("eventCountdownTimer");
@@ -35,7 +36,6 @@ function countdownTimer(countdownTime, date, time, title, hideDay) {
     eventCountdownTitle.classList.remove("hidden");
     eventCountdownTimer.classList.remove("hidden");
     eventCountdownTimer.classList.add("flex");
-
     let x = setInterval(() => {
         let currentTime = new Date().getTime();
         let timeRemaining = countdownTime - currentTime;
@@ -45,6 +45,7 @@ function countdownTimer(countdownTime, date, time, title, hideDay) {
             document.getElementById("eventCountdownTitle").classList.add("hidden");
             document.getElementById("eventCountdownTimer").classList.add("hidden");
 
+            showEventStatusContainer();
             updateEventStatus();
         } else {
             let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
@@ -52,23 +53,21 @@ function countdownTimer(countdownTime, date, time, title, hideDay) {
             let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-            document.getElementById("eventCountdownDay").innerHTML = days.toString().padStart(2,0);
-            document.getElementById("eventCountdownHour").innerHTML = hours.toString().padStart(2,0);
-            document.getElementById("eventCountdownMinute").innerHTML = minutes.toString().padStart(2,0);
-            document.getElementById("eventCountdownSecond").innerHTML = seconds.toString().padStart(2,0);
+            document.getElementById("eventCountdownDay").innerHTML = days.toString().padStart(2, 0);
+            document.getElementById("eventCountdownHour").innerHTML = hours.toString().padStart(2, 0);
+            document.getElementById("eventCountdownMinute").innerHTML = minutes.toString().padStart(2, 0);
+            document.getElementById("eventCountdownSecond").innerHTML = seconds.toString().padStart(2, 0);
         }
     }, 1000);
 }
 
 function updateEventStatus() {
-    document.getElementById("eventStatus").classList.remove("hidden");
     let dayOne = new Date("2024-05-14T10:00:00").getTime();
     let dayOneEnd = new Date("2024-05-14T16:40:00").getTime();
     let dayTwo = new Date("2024-05-15T10:00:00").getTime();
     let dayTwoEnd = new Date("2024-05-15T16:40:00").getTime();
     let dayThree = new Date("2024-05-16T10:00:00").getTime();
     let dayThreeEnd = new Date("2024-05-16T16:40:00").getTime();
-
     if (dayOne - currentTime < 0 && dayOneEnd - currentTime > 0) {
         // first day
         // console.log("day one");
@@ -78,8 +77,9 @@ function updateEventStatus() {
         let nextEventDate = document.getElementById("nextEventDate");
         let nextEventSpeaker = document.getElementById("nextEventSpeaker");
         let nextEvent = document.getElementById("nextEvent");
-
+        let nextEventContainer = document.getElementById("nextEventContainer");
         currentEventDay.innerText = "14.05.2024 - 1. Gün";
+
         // first event is the day start
         let eventOne = dayOne; // 10.00
         let eventOneEnd = eventOne + 3600000; // + 1 hour (3600000ms, 1h) 11.00
@@ -106,12 +106,12 @@ function updateEventStatus() {
 
         // using a truth table to prevent unnecessary updates
         let truthArray = [false, false, false, false, false, false, false, false];
-
         let eventUpdate = setInterval(() => {
             if (eventOne - currentTime < 0 && eventOneEnd - currentTime > 0 && !truthArray[0]) {
                 truthArray[0] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "BİZ2024 Açılış Töreni";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Girişimcilik ve Marka Yaratma";
                 nextEventSpeaker.innerText = "Orkun Kayra AKYÜZ";
                 nextEventDate.innerText = "11:00-12:00";
@@ -120,6 +120,7 @@ function updateEventStatus() {
                 truthArray[1] = true;
                 currentEventSpeaker.innerText = "Orkun Kayra AKYÜZ";
                 currentEvent.innerText = "Girişimcilik ve Marka Yaratma";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "1 Saat 15 Dakika Ara";
                 nextEventSpeaker.innerText = "";
                 nextEventDate.innerText = "12:00-13:15";
@@ -128,6 +129,7 @@ function updateEventStatus() {
                 truthArray[2] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "1 Saat 15 Dakika Ara";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Gearing Up for a Career as a Student";
                 nextEventSpeaker.innerText = "Murat Mirgün ERCAN";
                 nextEventDate.innerText = "13:15-14:15";
@@ -136,6 +138,7 @@ function updateEventStatus() {
                 truthArray[3] = true;
                 currentEventSpeaker.innerText = "Murat Mirgün ERCAN";
                 currentEvent.innerText = "Gearing Up for a Career as a Student";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Kahoot Yarışması";
                 nextEventSpeaker.innerText = "";
                 nextEventDate.innerText = "14:30-15:00";
@@ -144,6 +147,7 @@ function updateEventStatus() {
                 truthArray[4] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "15 Dakika Ara";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Kahoot Yarışması";
                 nextEventSpeaker.innerText = "";
                 nextEventDate.innerText = "14:30-15:00";
@@ -152,6 +156,7 @@ function updateEventStatus() {
                 truthArray[5] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "Kahoot Yarışması";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Teknoloji Evrimi";
                 nextEventSpeaker.innerText = "Baki ÇUBUK";
                 nextEventDate.innerText = "15:15-16:15";
@@ -160,6 +165,7 @@ function updateEventStatus() {
                 truthArray[6] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "15 Dakika Ara";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Teknoloji Evrimi";
                 nextEventSpeaker.innerText = "Baki ÇUBUK";
                 nextEventDate.innerText = "15:15-16:15";
@@ -168,6 +174,7 @@ function updateEventStatus() {
                 truthArray[7] = true;
                 currentEventSpeaker.innerText = "Baki ÇUBUK";
                 currentEvent.innerText = "Teknoloji Evrimi";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "1. Günün sonu";
                 nextEventSpeaker.innerText = "";
                 nextEventDate.innerText = "16:15";
@@ -178,12 +185,10 @@ function updateEventStatus() {
                 countdownTimer(dayTwo, "15.05.2024", "10.00", "2. Güne Kalan", true)
             }
         }, 1000);
-
     } else if (dayOneEnd - currentTime < 0 && dayTwo - currentTime > 0) {
         // time between end of the first day and start of the second day
         // console.log("day one ended, day two haven't started yet");
         countdownTimer(dayTwo, "15.05.2024", "10.00", "2. Güne Kalan", true)
-
     } else if (dayTwo - currentTime < 0 && dayTwoEnd - currentTime > 0) {
         // second day
         // console.log("day two");
@@ -193,8 +198,9 @@ function updateEventStatus() {
         let nextEventDate = document.getElementById("nextEventDate");
         let nextEventSpeaker = document.getElementById("nextEventSpeaker");
         let nextEvent = document.getElementById("nextEvent");
-
+        let nextEventContainer = document.getElementById("nextEventContainer");
         currentEventDay.innerText = "15.05.2024 - 2. Gün";
+
         // first event is the day start
         let eventOne = dayTwo; // 10.00
         let eventOneEnd = eventOne + 900000; // + .25 hour (900000ms, 15m) 10.15
@@ -225,13 +231,13 @@ function updateEventStatus() {
 
         // using a truth table to prevent unnecessary updates
         let truthArray = [false, false, false, false, false, false, false, false, false, false];
-
         let eventUpdate = setInterval(() => {
             if (eventOne - currentTime < 0 && eventOneEnd - currentTime > 0 && !truthArray[0]) {
                 // 10.00 - 10.15
                 truthArray[0] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "BİZ2024 Açılış Töreni";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Nasıl Yazılımcı Olunmaz";
                 nextEventSpeaker.innerText = "Doğan DAĞDELEN";
                 nextEventDate.innerText = "10:15-11:15";
@@ -241,7 +247,8 @@ function updateEventStatus() {
                 truthArray[1] = true;
                 currentEventSpeaker.innerText = "Doğan DAĞDELEN";
                 currentEvent.innerText = "Nasıl Yazılımcı Olunmaz";
-                nextEvent.innerText = "Backend Yazılım Geliştirme ve Yazılım Kariyer Basamakları";
+                nextEventContainer.classList.remove("hidden");
+                nextEvent.innerText = "Backend Developer Yol Haritası";
                 nextEventSpeaker.innerText = "Ahmet Buğra ÇAKICI";
                 nextEventDate.innerText = "11:30-12:30";
                 // console.log("e2");
@@ -250,7 +257,8 @@ function updateEventStatus() {
                 truthArray[2] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "15 Dakika Ara";
-                nextEvent.innerText = "Backend Yazılım Geliştirme ve Yazılım Kariyer Basamakları";
+                nextEventContainer.classList.remove("hidden");
+                nextEvent.innerText = "Backend Developer Yol Haritası";
                 nextEventSpeaker.innerText = "Ahmet Buğra ÇAKICI";
                 nextEventDate.innerText = "11:30-12:30";
                 // console.log("e3");
@@ -258,7 +266,8 @@ function updateEventStatus() {
                 // 11.30 - 12.30
                 truthArray[3] = true;
                 currentEventSpeaker.innerText = "Ahmet Buğra ÇAKICI";
-                currentEvent.innerText = "Backend Yazılım Geliştirme ve Yazılım Kariyer Basamakları";
+                currentEvent.innerText = "Backend Developer Yol Haritası";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "1 Saat Ara";
                 nextEventSpeaker.innerText = "";
                 nextEventDate.innerText = "12:30-13:30";
@@ -268,15 +277,17 @@ function updateEventStatus() {
                 truthArray[4] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "1 Saat Ara";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Meet My AI Sidekick";
-                nextEventSpeaker.innerText = "Daron YÖNDEM";
+                nextEventSpeaker.innerText = "Daron YONDEM";
                 nextEventDate.innerText = "13:30-14:30";
                 // console.log("e5");
             } else if (eventFive - currentTime < 0 && eventFiveEnd - currentTime > 0 && !truthArray[5]) {
                 // 13.30 - 14.30
                 truthArray[5] = true;
-                currentEventSpeaker.innerText = "Daron YÖNDEM";
+                currentEventSpeaker.innerText = "Daron YONDEM";
                 currentEvent.innerText = "Meet My AI Sidekick";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Cloud Nedir?";
                 nextEventSpeaker.innerText = "Enes RODOP";
                 nextEventDate.innerText = "14:45-15:45";
@@ -286,6 +297,7 @@ function updateEventStatus() {
                 truthArray[6] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "15 Dakika Ara";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Cloud Nedir?";
                 nextEventSpeaker.innerText = "Enes RODOP";
                 nextEventDate.innerText = "14:45-15:45";
@@ -295,6 +307,7 @@ function updateEventStatus() {
                 truthArray[7] = true;
                 currentEventSpeaker.innerText = "Enes RODOP";
                 currentEvent.innerText = "Cloud Nedir?";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Çekiliş ve Bitiriş Konuşması";
                 nextEventSpeaker.innerText = "";
                 nextEventDate.innerText = "16:00";
@@ -304,6 +317,7 @@ function updateEventStatus() {
                 truthArray[8] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "15 Dakika Ara";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "Çekiliş ve Bitiriş Konuşması";
                 nextEventSpeaker.innerText = "";
                 nextEventDate.innerText = "16:00";
@@ -313,6 +327,7 @@ function updateEventStatus() {
                 truthArray[9] = true;
                 currentEventSpeaker.innerText = "";
                 currentEvent.innerText = "Çekiliş ve Bitiriş Konuşması";
+                nextEventContainer.classList.remove("hidden");
                 nextEvent.innerText = "2. Günün Sonu";
                 nextEventSpeaker.innerText = "";
                 nextEventDate.innerText = "16:40";
@@ -323,16 +338,58 @@ function updateEventStatus() {
                 countdownTimer(dayThree, "16.05.2024", "10.00", "3. Güne Kalan", true)
             }
         }, 1000);
-
     } else if (dayTwoEnd - currentTime < 0 && dayThree - currentTime > 0) {
         // time between end of the second day and start of the third day
         // console.log("day two ended, day three haven't started yet");
         countdownTimer(dayThree, "16.05.2024", "10.00", "3. Güne Kalan", true)
-
     } else if (dayThree - currentTime < 0 && dayThreeEnd - currentTime > 0) {
-        // noop until timelines get fixed
+        // third day
+        // console.log("day three");
+        let currentEventDay = document.getElementById("currentEventDay");
+        let currentEventSpeaker = document.getElementById("currentEventSpeaker");
+        let currentEvent = document.getElementById("currentEvent");
+        let nextEventDate = document.getElementById("nextEventDate");
+        let nextEventSpeaker = document.getElementById("nextEventSpeaker");
+        let nextEvent = document.getElementById("nextEvent");
+        let nextEventContainer = document.getElementById("nextEventContainer");
+        currentEventDay.innerText = "16.05.2024 - 3. Gün";
+
+        // using a flag to prevent unnecessary updates
+        let updated = false;
+        let eventUpdate = setInterval(() => {
+            if (dayThree - currentTime < 0 && dayThreeEnd - currentTime > 0 && !updated) {
+                updated = true;
+                currentEventSpeaker.innerText = "";
+                currentEvent.innerText = "Etkinliğin 3. Günü başladı";
+                nextEventContainer.classList.add("hidden");
+                nextEvent.innerText = "";
+                nextEventSpeaker.innerText = "";
+                nextEventDate.innerText = "";
+                // console.log("e1");
+            } else if (dayThreeEnd - currentTime < 0) {
+                // last day
+                clearInterval(eventUpdate);
+                hideEventStatusContainer();
+                activateEventEndedContainer();
+            }
+        }, 1000);
     } else {
-        // noop
         // console.log("event ended");
+        hideEventStatusContainer();
+        activateEventEndedContainer();
     }
+}
+
+function showEventStatusContainer() {
+    document.getElementById("eventStatusContainer").classList.remove("hidden");
+}
+
+function hideEventStatusContainer() {
+    document.getElementById("eventStatusContainer").classList.add("hidden");
+}
+
+function activateEventEndedContainer() {
+    let eventEndedContainer = document.getElementById("eventEndedContainer");
+    eventEndedContainer.classList.remove("hidden");
+    eventEndedContainer.classList.add("flex");
 }
